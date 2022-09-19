@@ -1,7 +1,5 @@
 class Solution {
     public int minSubArrayLen(int target, int[] nums) {
-        int[] ans = new int[nums.length];
-        ans[0] = nums[0];
         int left = 0;
         int total = 0;
         int res = nums.length + 1;
