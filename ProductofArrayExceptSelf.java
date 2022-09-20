@@ -1,7 +1,7 @@
 class Solution {
     public int[] productExceptSelf(int[] nums) {
-        int leftptr = 0; 
-        int rightptr = 0; 
+        int leftptr = 1; 
+        int rightptr = 1; 
         int[] ans = new int[nums.length];
         int[] left = new int[nums.length]; 
         int[] right = new int[nums.length];
