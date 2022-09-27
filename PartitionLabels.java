@@ -13,12 +13,8 @@ class Solution {
         int end = hashMap.get(s.charAt(0));
         for (int i = 0; i < s.length(); i++){
             int curr = hashMap.get(s.charAt(i));
-            if (curr > end){
-                end = curr;
-                size ++;
-            }else {
-                size ++;
-            }
+            size ++;
+            end = Math.max(end, curr);
             if (i == end){
                 list.add(size);
                 size = 0;
