@@ -9,7 +9,7 @@ class Solution {
                 while (j < needle.length()){
                     if (needle.charAt(j) == haystack.charAt(j + i)){
                         count ++;
-                    }
+                    }else break;
                     j ++;
                 }
                 if (count == needle.length()) return i;
