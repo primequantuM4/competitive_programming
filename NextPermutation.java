@@ -5,6 +5,7 @@ class Solution {
         while (i > 0 && nums[i - 1] >= nums[i])
             i--;
         //This condition helps us for the extreme cases like 3 2 1 meaning we didn't find a pivot element
+        // .sort() method is useless as it has time complexity of O(n log n) while swapping is O(n) so swapping is better to optimize the alogrithm
         if (i <= 0){
             int temp;
             for (int k = 0; k < nums.length / 2; k++) {
