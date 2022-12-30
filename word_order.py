@@ -13,6 +13,5 @@ for i in arr:
         idx = dic.get(i)
         total_num[idx] += 1
 
-print(len(res))
 for i in total_num:
     print(i, end=' ')
