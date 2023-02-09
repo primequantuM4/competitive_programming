@@ -14,10 +14,7 @@ class Solution:
                 merge.append(secondBlock.popleft())
                 ptr2 += 1
 
-        while firstBlock:
-            merge.append(firstBlock.popleft())
-
-        while secondBlock:
-            merge.append(secondBlock.popleft())    
+        merge.extend(firstBlock)
+        merge.extend(secondBlock)    
 
         return "".join(merge)        
