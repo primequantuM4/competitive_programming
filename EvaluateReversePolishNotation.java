@@ -1,38 +1,21 @@
 class Solution {
     public int evalRPN(String[] tokens) {
-        Stack<Integer> stack = new Stack<Integer>();
-        int firstNumber;
-        int secondNumber;
-        int result;
-        for (String nums : tokens){
-        	if (!(nums.equals("+") ||nums.equals("-") ||nums.equals("*") ||nums.equals("/")) ) {
-        		stack.push(Integer.parseInt(nums));
-        	}else if (nums.equals("+")) {
-        		firstNumber = stack.pop();
-        		secondNumber = stack.pop();
-        		result = secondNumber + firstNumber;
-        		stack.push(result);
-        	}else if (nums.equals("-")) {
-        		firstNumber = stack.pop();
-        		secondNumber = stack.pop();
-        		result = secondNumber - firstNumber;
-        		stack.push(result);
-        	}else if (nums.equals("*")) {
-        		firstNumber = stack.pop();
-        		secondNumber = stack.pop();
-        		result = secondNumber * firstNumber;
-        		stack.push(result);
-        	}else if (nums.equals("/")) {
-        		firstNumber = stack.pop();
-        		secondNumber = stack.pop();
-        		result = secondNumber / firstNumber;
-        		stack.push(result);
-        	}
-        	
-            
-        }
-        return stack.peek();
-        
-    }
+        Stack<Integer> stack = new Stack<>();
+		for (String expression: tokens){
+			boolean notOperator = !(expression.equals("+") ||expression.equals("-") ||expression.equals("*") ||expression.equals("/"));
 
+			if (notOperator) stack.push(Integer.parseInt(expression));
+			else{
+				int value = operate(stack.pop(), stack.pop(), expression);
+				stack.push(value);
+			}
+		}
+		return stack.pop();
+    }
+	public int operate(int nums1, int nums2, String operation){
+		if (operation.equals("+")) return nums2 + nums1;
+		else if (operation.equals("-")) return nums2 - nums1;
+		else if (operation.equals("*")) return nums1 * nums2;
+		else return nums2/ nums1;
+	}
 }
