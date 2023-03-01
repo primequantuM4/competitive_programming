@@ -8,8 +8,7 @@ class Solution {
         for (int i =0; i < nums.length; i++){
             sum += nums[i];
 
-            if (map.containsKey(sum - k))
-                subArrCount += map.get(sum - k);
+            subArrCount += map.getOrDefault(sum - k, 0);
             
             map.put(sum, map.getOrDefault(sum, 0) + 1);
         }
