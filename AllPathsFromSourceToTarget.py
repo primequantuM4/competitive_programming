@@ -1,6 +1,5 @@
 class Solution:
     def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
-        #goal_node = len(graph) - 1
         #adj list maybe but not necessary
         goal_node = len(graph) - 1
 
