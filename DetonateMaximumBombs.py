@@ -1,15 +1,12 @@
 class Solution:
     def maximumDetonation(self, bombs: List[List[int]]) -> int:
-        #create an adj list
-        adj_list = {}
-        for i in range(len(bombs)):
-            x1, y1, radius1 = bombs[i]
-            adj_list[i] = []
-            for j in range(len(bombs)):
-                x2, y2, radius2 = bombs[j]
-                lineLength = math.sqrt(((x2-x1) ** 2) + ((y2-y1) **2)) 
-                if lineLength <= radius1:
-                    adj_list[i].append(j)
+        def bombs_in_range(bomb_a, bomb_b):
+            x1, y1, radius1 = bomb_a
+            x2, y2, radius2 = bomb_b
+
+            lineLength = math.sqrt(((x2-x1) ** 2) + ((y2-y1) **2)) 
+            return lineLength <= radius1
+
 
         def dfs(node):
             max_detonator = 1
@@ -30,9 +27,18 @@ class Solution:
 
             return max_detonator
 
+        
+        #create an adj list
+        adj_list = {}
+        for i in range(len(bombs)):
+            adj_list[i] = []
+
+            for j in range(len(bombs)):
+                if bombs_in_range(bombs[i], bombs[j]):
+                    adj_list[i].append(j)
+
         max_reaching_dist = 1
         for bomb in range(len(bombs)):
             max_reaching_dist = max(max_reaching_dist, dfs(bomb))
 
-            
         return max_reaching_dist
