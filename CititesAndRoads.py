@@ -1,6 +1,4 @@
 size = int(input())
-
-graph = []
 value_sum = 0
 
 for row in range(size):
