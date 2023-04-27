@@ -25,3 +25,7 @@ class Solution:
                     queue.append(cur_node.right)
 
             averageVal = value / length
+            averageArray.append(averageVal)
+
+
+        return averageArray
