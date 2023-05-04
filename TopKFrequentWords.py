@@ -9,7 +9,6 @@ class Solution:
             heappush(heapified_words, (frequency, word))
 
         for _ in range(k):
-            print(heapified_words)
             _, word = heappop(heapified_words)
             kFrequencies.append(word)
 
