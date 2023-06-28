@@ -1,7 +1,5 @@
 class Solution:
     def minimumTotal(self, triangle: List[List[int]]) -> int:
-        minimum_path = float('inf')
-
         @cache
         def findMinimum(row_index, col_index):
             if row_index >= len(triangle):
