@@ -1,0 +1,1 @@
+answer = Math.max(answer, (prefixSum + i) / (i + 1));
